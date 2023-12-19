@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Ingrédients</title>
+</head>
+<body>
+    <h2>Gestion des Ingrédients</h2>
+    <ul>
+        <% for(let ingredient of ingredients) { %>
+            <li>- <%= ingredient.nom.toUpperCase() %> | Nombre de calories : <%= ingredient.calories %>Cal | Couleur : <%= ingredient.couleur %></li>
+        <% } %>
+    </ul>
+    <a href="/">Accueil</a>
+</body>
+</html>

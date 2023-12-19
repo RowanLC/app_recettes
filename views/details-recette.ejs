@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la Recette</title>
+</head>
+<body>
+    <h2><%= recette.nom %></h2>
+
+    <% if (recette.image) { %>
+        <img src="<%= recette.image %>" alt="Image de <%= recette.nom %>" style="max-width: 500px;">
+    <% } %>
+
+    <p><%= recette.description %></p>
+    
+    <h3>Catégorie</h3>
+
+    <a href="<%= recette.categorie %>"></a>
+
+    <h3>Commentaires</h3>
+    <% if (commentaires && commentaires.length) { %>
+        <ul>
+            <% commentaires.forEach(function(commentaire) { %>
+                <li>
+                    <strong>Note : <%= commentaire.note %>/5</strong>
+                    <p><%= commentaire.contenu %></p>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>Aucun commentaire pour cette recette.</p>
+    <% } %>
+
+    <h3>Ajouter un Commentaire</h3>
+    <form action="/commentaire/ajouter/<%= recette._id %>" method="post">
+        <label for="note">Note : </label>
+        <input type="number" id="note" name="note" min="1" max="5" required><br>
+
+        <label for="contenu">Précisez votre commentaire : </label>
+        <textarea name="contenu" id="contenu" required></textarea><br>
+
+        <input type="submit" value="Ajouter un commentaire">
+    </form>
+</body>
+</html>

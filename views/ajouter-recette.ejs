@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Recette</title>
+</head>
+<body>
+    <h2>Ajouter une Recette</h2>
+    <form action="/recettes/ajouter" method="post" enctype="multipart/form-data">
+        <label for="titre">Titre : </label>
+        <input type="text" id="nom" name="nom" required></br>
+
+        <label for="description">Description : </label>
+        <textarea id="description" name="description" required></textarea></br>
+
+        <label for="categorie">Catégorie : </label>
+        <select id="categorie" name="categorie">
+            <option value="656ee7b357297628f61b54f0">Avec Viande</option>
+            <option value="656ee7b357297628f61b54f3">Dessert</option>
+            <option value="656ee7b357297628f61b54f6">Végétarien</option>
+        </select>
+
+        <label for="imgRecette">Image : </label>
+        <input type="file" id="imgRecette" name="imgRecette">
+        <input type="submit" value="Ajouter la recette">
+    </form>
+</body>
+</html>

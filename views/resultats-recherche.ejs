@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche d'une Recette</title>
+</head>
+<body>
+    <h2>Résultat(s) de la Recherche</h2>
+
+    <% if (recettes.length > 0) { %>
+        <ul>
+            <% recettes.forEach(recette => { %>
+                <li>
+                    <h3><%= recettes.titre %></h3>
+                    <p><%= recettes.description %></p>
+                </li>
+        <% }); %>
+        </ul>
+    <% } else { %>
+        <p>Aucune recette trouvée.</p>
+    <% } %>
+</body>
+</html>

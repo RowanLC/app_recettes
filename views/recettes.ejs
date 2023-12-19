@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Recettes</title>
+</head>
+<body>
+    <h2>Gestion des Recettes</h2>
+
+    <div>
+        <a href="recettes/categorie/656ee7b357297628f61b54f0">Avec Viande</a>
+        <a href="recettes/categorie/656ee7b357297628f61b54f3">Dessert</a>
+        <a href="recettes/categorie/656ee7b357297628f61b54f6">Végétarien</a>
+    </div>
+
+    <% if (messages.success) { %>
+        <div style="color: green;"><%= messages.success %></div>
+    <% } %>
+    <% if (messages.error) { %>
+        <div style="color: red;"><%= messages.error %></div>
+    <% } %>
+
+    <ul>
+        <% recettes.forEach(function(recette) { %>
+            <li>
+                <%= recette.nom %>
+                - <a href="/recettes/detail/<%= recette._id %>">Voir</a>
+                - <a href="/recettes/modifier/<%= recette._id %>">Modifier</a>
+                - <a href="/recettes/supprimer/<%= recette._id %>">Supprimer</a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <form action="/recettes/recherche" method="GET">
+        <input type="text" name="titre" placeholder="Rechercher une recette">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <a href="/">Accueil</a>
+    
+</body>
+</html>
